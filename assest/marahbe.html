@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Label MARHBA - MBA AMRI CONSULT</title>
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #FFD700;
+            --accent-color: #FF6B35;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), #20B2AA);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary-color), #FFA500);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .company-info {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .company-details h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .company-details p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .page-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .page-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Statistics */
+        .stats-section {
+            background: var(--white);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card:nth-child(2) {
+            background: var(--gradient-secondary);
+            color: var(--text-dark);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, var(--accent-color), #FF8C42);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Projects Table */
+        .projects-section {
+            background: var(--white);
+            padding: 3rem 0;
+            box-shadow: var(--shadow);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .projects-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .projects-table th {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 1.5rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .projects-table td {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid #E9ECEF;
+            vertical-align: top;
+        }
+
+        .projects-table tr:hover {
+            background: #F8F9FA;
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        .project-number {
+            background: var(--gradient-secondary);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .beneficiary {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .beneficiary-type {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .period {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .period.ongoing {
+            background: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Mobile Cards */
+        .mobile-cards {
+            display: none;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .expertise-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .expertise-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: var(--gradient-secondary);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .company-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .company-details h1 {
+                font-size: 2rem;
+            }
+
+            .page-title h2 {
+                font-size: 2rem;
+            }
+
+            .projects-table {
+                display: none;
+            }
+
+            .mobile-cards {
+                display: block;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="company-info">
+                    <div class="company-details">
+                        <h1>MBA AMRI CONSULT</h1>
+                        <p>Bureau d'études et de consulting agréé par l'État</p>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Informations de Contact</h3>
+                        <p><strong>Adresse:</strong> Avenue Taieb Mhiri, Ariana Centre Bureau C315</p>
+                        <p><strong>Téléphone:</strong> +216 70 856 263</p>
+                        <p><strong>Portable:</strong> +216 53 589 224</p>
+                        <p><strong>Email:</strong> tunisiamba@gmail.com</p>
+                        <p><strong>Site web:</strong> mba-amri-consult.tn</p>
+                        <p><strong>Agrément:</strong> 12/642/15</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h2 class="fade-in">Projets Label MARHBA</h2>
+            <p class="fade-in">Qualité d'accueil dans les services publics</p>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card slide-in-left">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">Projets Réalisés</span>
+                </div>
+                <div class="stat-card slide-in-left">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">Établissements Accompagnés</span>
+                </div>
+                <div class="stat-card slide-in-left">
+                    <span class="stat-number" data-target="7">0</span>
+                    <span class="stat-label">Années d'Expérience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-title">
+                <h3 class="fade-in">Liste des Projets Label MARHBA</h3>
+                <p class="fade-in">Assistance et accompagnement pour la qualité d'accueil</p>
+            </div>
+
+            <!-- Desktop Table -->
+            <table class="projects-table fade-in">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Intitulé du Projet</th>
+                        <th>Bénéficiaires</th>
+                        <th>Période</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="project-number">1</span></td>
+                        <td>
+                            <div class="project-title">Assistance technique et Accompagnement Label MARHABA</div>
+                            <div class="project-description">Mise en conformité et obtention du Label national pour l'accueil dans les services publics</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Municipalité Kalaa Kebira</div>
+                            <div class="beneficiary-type">Administration Locale</div>
+                        </td>
+                        <td><span class="period ongoing">2025 – En cours</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">2</span></td>
+                        <td>
+                            <div class="project-title">Assistance technique et Accompagnement Label MARHABA</div>
+                            <div class="project-description">Mise en conformité et obtention du Label national pour l'accueil dans les services publics</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Office de l'Aviation Civile et des Aéroports (OACA)</div>
+                            <div class="beneficiary-type">Établissement Public</div>
+                        </td>
+                        <td><span class="period ongoing">2025 – En cours</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">3</span></td>
+                        <td>
+                            <div class="project-title">Système de management qualité Label MARHBA</div>
+                            <div class="project-description">Mise en place pour 3 établissements universitaires</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Université de Jendouba</div>
+                            <div class="beneficiary-type">Institut Supérieur de l'Informatique du Kef, École Supérieure d'Agriculture du Kef, École Supérieure des Ingénieurs de Medjez El Bab</div>
+                        </td>
+                        <td><span class="period">2022-2023</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">4</span></td>
+                        <td>
+                            <div class="project-title">Assistance technique Label MARHBA</div>
+                            <div class="project-description">Système de management de la qualité conforme aux exigences du Label</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Faculté des Sciences Juridiques Économiques et de Gestion de Jendouba</div>
+                            <div class="beneficiary-type">Établissement Universitaire</div>
+                        </td>
+                        <td><span class="period">2023</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">5</span></td>
+                        <td>
+                            <div class="project-title">Accompagnement Label MARHBA</div>
+                            <div class="project-description">Mise en place d'un système de management de la qualité</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Institut Supérieur des Etudes Appliquées en Humanités du Kef</div>
+                            <div class="beneficiary-type">Établissement Universitaire</div>
+                        </td>
+                        <td><span class="period">2023</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">6</span></td>
+                        <td>
+                            <div class="project-title">Assistance technique Label MARHBA</div>
+                            <div class="project-description">Système de management de la qualité conforme aux exigences</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Institut Sylvo-pastoral de Tabarka</div>
+                            <div class="beneficiary-type">Établissement Spécialisé</div>
+                        </td>
+                        <td><span class="period">2023</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">7</span></td>
+                        <td>
+                            <div class="project-title">Mise en place référentiel qualité d'accueil MARHBA</div>
+                            <div class="project-description">Implémentation complète du système qualité</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Société TUNISIE AUTOROUTES</div>
+                            <div class="beneficiary-type">Entreprise Publique</div>
+                        </td>
+                        <td><span class="period">2019</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">8</span></td>
+                        <td>
+                            <div class="project-title">Système intégré Qualité ISO9001, Label MARHBA, Gouvernance NRG</div>
+                            <div class="project-description">Système intégré incluant anti-corruption ISO37001</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Commune Beni Kédeche</div>
+                            <div class="beneficiary-type">Administration Locale</div>
+                        </td>
+                        <td><span class="period">2019</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">9</span></td>
+                        <td>
+                            <div class="project-title">Auto-évaluation régulière ISO 9001 et Label MARHBA</div>
+                            <div class="project-description">Identification des besoins et mesures correctives</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Université de Jendouba</div>
+                            <div class="beneficiary-type">Université et ses établissements</div>
+                        </td>
+                        <td><span class="period">2022</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">10</span></td>
+                        <td>
+                            <div class="project-title">Entretien Système Management Intégré</div>
+                            <div class="project-description">Qualité ISO 9001 et Label MARHBA</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Agence Foncière d'Habitation (AFH)</div>
+                            <div class="beneficiary-type">Établissement Public</div>
+                        </td>
+                        <td><span class="period">2021</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">11</span></td>
+                        <td>
+                            <div class="project-title">Mise en place référentiel qualité d'accueil MARHBA</div>
+                            <div class="project-description">Implémentation système qualité d'accueil</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Centre des Etudes et des Recherches en Télécommunication CERT</div>
+                            <div class="beneficiary-type">Centre de Recherche</div>
+                        </td>
+                        <td><span class="period">2018</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">12</span></td>
+                        <td>
+                            <div class="project-title">Assistance guichet unique renouvellement Label MARHBA</div>
+                            <div class="project-description">Accompagnement pour le renouvellement</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Guichet Unique</div>
+                            <div class="beneficiary-type">Service Public</div>
+                        </td>
+                        <td><span class="period ongoing">Mars 2023 - En cours</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">13</span></td>
+                        <td>
+                            <div class="project-title">Assistance technique tribunal administratif Label MARHBA</div>
+                            <div class="project-description">Mise en conformité et obtention du Label</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Democracy Reporting International (DRI)</div>
+                            <div class="beneficiary-type">Organisation Internationale</div>
+                        </td>
+                        <td><span class="period ongoing">2024 - En cours</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">14</span></td>
+                        <td>
+                            <div class="project-title">Mise en place référentiel qualité d'accueil MARHBA</div>
+                            <div class="project-description">Système qualité d'accueil transport</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">Société de Transport de Sahel</div>
+                            <div class="beneficiary-type">Entreprise de Transport</div>
+                        </td>
+                        <td><span class="period">2018</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-number">15</span></td>
+                        <td>
+                            <div class="project-title">Assistance technique Label MARHABA</div>
+                            <div class="project-description">Mise en conformité et obtention du Label national</div>
+                        </td>
+                        <td>
+                            <div class="beneficiary">ISSAT de Kasserine</div>
+                            <div class="beneficiary-type">Institut Supérieur</div>
+                        </td>
+                        <td><span class="period ongoing">2024 - En cours</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Mobile Cards -->
+            <div class="mobile-cards">
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">1</span>
+                        <span class="period ongoing">2025 – En cours</span>
+                    </div>
+                    <div class="project-title">Assistance technique et Accompagnement Label MARHABA</div>
+                    <div class="project-description">Mise en conformité et obtention du Label national pour l'accueil dans les services publics</div>
+                    <div class="beneficiary">Municipalité Kalaa Kebira</div>
+                    <div class="beneficiary-type">Administration Locale</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">2</span>
+                        <span class="period ongoing">2025 – En cours</span>
+                    </div>
+                    <div class="project-title">Assistance technique et Accompagnement Label MARHABA</div>
+                    <div class="project-description">Mise en conformité et obtention du Label national pour l'accueil dans les services publics</div>
+                    <div class="beneficiary">Office de l'Aviation Civile et des Aéroports (OACA)</div>
+                    <div class="beneficiary-type">Établissement Public</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">3</span>
+                        <span class="period">2022-2023</span>
+                    </div>
+                    <div class="project-title">Système de management qualité Label MARHBA</div>
+                    <div class="project-description">Mise en place pour 3 établissements universitaires</div>
+                    <div class="beneficiary">Université de Jendouba</div>
+                    <div class="beneficiary-type">Institut Supérieur de l'Informatique du Kef, École Supérieure d'Agriculture du Kef, École Supérieure des Ingénieurs de Medjez El Bab</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">4</span>
+                        <span class="period">2023</span>
+                    </div>
+                    <div class="project-title">Assistance technique Label MARHBA</div>
+                    <div class="project-description">Système de management de la qualité conforme aux exigences du Label</div>
+                    <div class="beneficiary">Faculté des Sciences Juridiques Économiques et de Gestion de Jendouba</div>
+                    <div class="beneficiary-type">Établissement Universitaire</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">5</span>
+                        <span class="period">2023</span>
+                    </div>
+                    <div class="project-title">Accompagnement Label MARHBA</div>
+                    <div class="project-description">Mise en place d'un système de management de la qualité</div>
+                    <div class="beneficiary">Institut Supérieur des Etudes Appliquées en Humanités du Kef</div>
+                    <div class="beneficiary-type">Établissement Universitaire</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">6</span>
+                        <span class="period">2023</span>
+                    </div>
+                    <div class="project-title">Assistance technique Label MARHBA</div>
+                    <div class="project-description">Système de management de la qualité conforme aux exigences</div>
+                    <div class="beneficiary">Institut Sylvo-pastoral de Tabarka</div>
+                    <div class="beneficiary-type">Établissement Spécialisé</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">7</span>
+                        <span class="period">2019</span>
+                    </div>
+                    <div class="project-title">Mise en place référentiel qualité d'accueil MARHBA</div>
+                    <div class="project-description">Implémentation complète du système qualité</div>
+                    <div class="beneficiary">Société TUNISIE AUTOROUTES</div>
+                    <div class="beneficiary-type">Entreprise Publique</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">8</span>
+                        <span class="period">2019</span>
+                    </div>
+                    <div class="project-title">Système intégré Qualité ISO9001, Label MARHBA, Gouvernance NRG</div>
+                    <div class="project-description">Système intégré incluant anti-corruption ISO37001</div>
+                    <div class="beneficiary">Commune Beni Kédeche</div>
+                    <div class="beneficiary-type">Administration Locale</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">9</span>
+                        <span class="period">2022</span>
+                    </div>
+                    <div class="project-title">Auto-évaluation régulière ISO 9001 et Label MARHBA</div>
+                    <div class="project-description">Identification des besoins et mesures correctives</div>
+                    <div class="beneficiary">Université de Jendouba</div>
+                    <div class="beneficiary-type">Université et ses établissements</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">10</span>
+                        <span class="period">2021</span>
+                    </div>
+                    <div class="project-title">Entretien Système Management Intégré</div>
+                    <div class="project-description">Qualité ISO 9001 et Label MARHBA</div>
+                    <div class="beneficiary">Agence Foncière d'Habitation (AFH)</div>
+                    <div class="beneficiary-type">Établissement Public</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">11</span>
+                        <span class="period">2018</span>
+                    </div>
+                    <div class="project-title">Mise en place référentiel qualité d'accueil MARHBA</div>
+                    <div class="project-description">Implémentation système qualité d'accueil</div>
+                    <div class="beneficiary">Centre des Etudes et des Recherches en Télécommunication CERT</div>
+                    <div class="beneficiary-type">Centre de Recherche</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">12</span>
+                        <span class="period ongoing">Mars 2023 - En cours</span>
+                    </div>
+                    <div class="project-title">Assistance guichet unique renouvellement Label MARHBA</div>
+                    <div class="project-description">Accompagnement pour le renouvellement</div>
+                    <div class="beneficiary">Guichet Unique</div>
+                    <div class="beneficiary-type">Service Public</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">13</span>
+                        <span class="period ongoing">2024 - En cours</span>
+                    </div>
+                    <div class="project-title">Assistance technique tribunal administratif Label MARHBA</div>
+                    <div class="project-description">Mise en conformité et obtention du Label</div>
+                    <div class="beneficiary">Democracy Reporting International (DRI)</div>
+                    <div class="beneficiary-type">Organisation Internationale</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">14</span>
+                        <span class="period">2018</span>
+                    </div>
+                    <div class="project-title">Mise en place référentiel qualité d'accueil MARHBA</div>
+                    <div class="project-description">Système qualité d'accueil transport</div>
+                    <div class="beneficiary">Société de Transport de Sahel</div>
+                    <div class="beneficiary-type">Entreprise de Transport</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="project-number">15</span>
+                        <span class="period ongoing">2024 - En cours</span>
+                    </div>
+                    <div class="project-title">Assistance technique Label MARHABA</div>
+                    <div class="project-description">Mise en conformité et obtention du Label national</div>
+                    <div class="beneficiary">ISSAT de Kasserine</div>
+                    <div class="beneficiary-type">Institut Supérieur</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <div class="expertise-content">
+                <h3 class="fade-in">Notre Expertise Label MARHBA</h3>
+                <p class="fade-in">MBA AMRI CONSULT, leader dans l'accompagnement pour la qualité d'accueil</p>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-item slide-in-left">
+                        <h4>Secteur Public</h4>
+                        <p>Accompagnement des administrations, universités et établissements publics pour l'amélioration de la qualité d'accueil</p>
+                    </div>
+                    <div class="expertise-item slide-in-right">
+                        <h4>Secteur Éducatif</h4>
+                        <p>Spécialisation dans l'accompagnement des établissements d'enseignement supérieur et de formation</p>
+                    </div>
+                    <div class="expertise-item slide-in-left">
+                        <h4>Systèmes Intégrés</h4>
+                        <p>Mise en place de systèmes intégrés combinant qualité, gouvernance et anti-corruption</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h3>Besoin d'accompagnement pour le Label MARHBA ?</h3>
+                <p>Contactez-nous pour bénéficier de notre expertise en qualité d'accueil</p>
+                <a href="mailto:tunisiamba@gmail.com" class="cta-button">Nous Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Start counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

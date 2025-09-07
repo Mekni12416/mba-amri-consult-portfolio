@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets ISO 45001 - MBA AMRI CONSULT</title>
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .iso-badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 3rem 0;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 10;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, var(--bg-light), var(--white));
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .projects-table {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 60px 2fr 2fr 1fr;
+            gap: 1rem;
+            font-weight: bold;
+            align-items: center;
+        }
+
+        .project-row {
+            display: grid;
+            grid-template-columns: 60px 2fr 2fr 1fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .project-row:hover {
+            background: var(--bg-light);
+            transform: translateX(5px);
+        }
+
+        .project-row:last-child {
+            border-bottom: none;
+        }
+
+        .project-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .project-client {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .project-period {
+            background: var(--success-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .table-header,
+            .project-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .project-row {
+                padding: 1rem;
+                border-radius: var(--border-radius);
+                margin-bottom: 1rem;
+                box-shadow: var(--shadow);
+                background: var(--white);
+            }
+
+            .project-number {
+                margin: 0 auto;
+            }
+
+            .projects-table {
+                box-shadow: none;
+                background: transparent;
+            }
+
+            .table-header {
+                display: none;
+            }
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: linear-gradient(135deg, var(--bg-light), var(--white));
+            padding: 4rem 0;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .expertise-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .expertise-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">MBA AMRI CONSULT</a>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>tunisiamba@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+216 53 589 224</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Ariana Center Bureau C315</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Projets ISO 45001:2018</h1>
+                <p>Systèmes de Management de la Santé et Sécurité au Travail</p>
+                <div class="iso-badge">ISO 45001:2018 Certified</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <div class="stat-label">Projets Réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Taux de Réussite</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <div class="stat-label">Années d'Expérience</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <div class="stat-label">Entreprises Certifiées</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Liste des Projets ISO 45001:2018</h2>
+            
+            <div class="projects-table">
+                <div class="table-header">
+                    <div>N°</div>
+                    <div>Intitulé du Projet</div>
+                    <div>Bénéficiaires</div>
+                    <div>Période</div>
+                </div>
+                
+                <div class="project-row">
+                    <div class="project-number">1</div>
+                    <div class="project-title">Assistance à La Mise en place d'un système selon ISO45001 version 2018</div>
+                    <div class="project-client">Société Premium Multi Services (Groupe SERGAZ)</div>
+                    <div class="project-period">2020-2021</div>
+                </div>
+                
+                <div class="project-row">
+                    <div class="project-number">2</div>
+                    <div class="project-title">Mise en place d'un système intégré QSE selon ISO45001 version 2018</div>
+                    <div class="project-client">Société COALA</div>
+                    <div class="project-period">2020</div>
+                </div>
+                
+                <div class="project-row">
+                    <div class="project-number">3</div>
+                    <div class="project-title">Assistance a La Mise en place d'un système selon ISO45001 version 2018</div>
+                    <div class="project-client">Société des Ciments de Gabés</div>
+                    <div class="project-period">2018-2019</div>
+                </div>
+                
+                <div class="project-row">
+                    <div class="project-number">4</div>
+                    <div class="project-title">Assistance à la mise en place d'un système intégré HSE selon ISO45001 version 2018</div>
+                    <div class="project-client">Société SICOVETT</div>
+                    <div class="project-period">2018-2019</div>
+                </div>
+                
+                <div class="project-row">
+                    <div class="project-number">5</div>
+                    <div class="project-title">Mise en place du SMSST selon ISO 45001 version 2018</div>
+                    <div class="project-client">STAM</div>
+                    <div class="project-period">2021</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <h2 class="section-title">Notre Expertise ISO 45001</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🛡️</div>
+                    <h3 class="expertise-title">Sécurité au Travail</h3>
+                    <p class="expertise-description">Mise en place de systèmes de management de la santé et sécurité au travail conformes à l'ISO 45001:2018</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">📋</div>
+                    <h3 class="expertise-title">Audit & Évaluation</h3>
+                    <p class="expertise-description">Audits internes et évaluations des risques pour assurer la conformité aux exigences ISO 45001</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🎯</div>
+                    <h3 class="expertise-title">Accompagnement</h3>
+                    <p class="expertise-description">Assistance complète depuis la mise en place jusqu'à la certification ISO 45001:2018</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MBA AMRI CONSULT</h3>
+                    <p>Bureau d'études et de consulting agréé par l'État sous le numéro 12/642/15</p>
+                    <p>Spécialisé dans les systèmes de management ISO</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Avenue Taieb Mhiri, Ariana Centre</p>
+                    <p>Bureau C315, 2080 Ariana, Tunisie</p>
+                    <p>Tél: +216 70 856 263</p>
+                    <p>Mobile: +216 53 589 224</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p>Assistance & Accompagnement</p>
+                    <p>Formation Continue</p>
+                    <p>Étude et Diagnostic</p>
+                    <p>Certification ISO</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MBA AMRI CONSULT. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
